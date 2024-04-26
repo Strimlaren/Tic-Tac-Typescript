@@ -1,15 +1,14 @@
 import Square from "./Square";
 
-type Props = {
+type BoardProps = {
   squares: Array<string>;
-  finished: boolean;
   onClick: (i: number) => void;
 };
 
-const Board: React.FC<Props> = (props) => {
-  const renderSquare = (i: number) => (
-    <Square value={props.squares[i]} onClick={() => props.onClick(i)} />
-  );
+export default function Board({ squares, onClick }: BoardProps) {
+  function renderSquare(i: number) {
+    return <Square value={squares[i]} onClick={() => onClick(i)} />;
+  }
 
   return (
     <div className="board-body">
@@ -30,6 +29,4 @@ const Board: React.FC<Props> = (props) => {
       </div>
     </div>
   );
-};
-
-export default Board;
+}

@@ -17,7 +17,9 @@
   padding-top: 20%;
 }
 
-.board-body {}
+.board-body {
+  margin: 20px 0;
+}
 
 .board-row:after {
   clear: both;
@@ -27,6 +29,14 @@
 
 .status {
   margin-bottom: 10px;
+}
+
+ul {
+  text-align: center;
+}
+
+li {
+  margin-bottom: 3px;
 }
 
 .square {

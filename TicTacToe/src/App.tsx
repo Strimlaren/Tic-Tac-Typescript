@@ -1,4 +1,4 @@
-import { useState, ReactElement } from "react";
+import { useState } from "react";
 import Board from "../src/Components/Board";
 import "./App.css";
 
@@ -83,11 +83,7 @@ export default function App() {
   return (
     <div className="game">
       <div>{status}</div>
-      <Board
-        squares={squares}
-        finished={finished}
-        onClick={(e) => handleClick(e)}
-      />
+      <Board squares={squares} onClick={(e) => handleClick(e)} />
       <div className="game-info">
         <ul>{moves}</ul>
       </div>
