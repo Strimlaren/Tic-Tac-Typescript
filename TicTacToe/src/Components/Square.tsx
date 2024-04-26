@@ -1,15 +1,11 @@
-import React from "react";
-
-type Props = {
+type SquareProps = {
   value: string;
   onClick: () => void;
 };
-const Square: React.FC<Props> = (props) => {
+export default function Square({ value, onClick }: SquareProps) {
   return (
-    <button className="square" onClick={props.onClick}>
-      {props.value}
+    <button className="square" onClick={onClick}>
+      {value}
     </button>
   );
-};
-
-export default Square;
+}
