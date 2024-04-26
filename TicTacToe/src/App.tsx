@@ -38,7 +38,6 @@ export default function App() {
   /* Handles click on individual squares */
   function handleClick(num: number) {
     /* If game is finished, dont do anything */
-    console.log(num);
     if (finished) {
       return;
     }
@@ -74,7 +73,7 @@ export default function App() {
     setXIsNext(step % 2 === 0);
     setFinished(false);
   }
-  /*  */
+  /* Check if there is a winner */
   const _history = [...history];
   const squares = [..._history[moveNumber].squares];
   const winner = calculateWinner(squares);
@@ -82,21 +81,20 @@ export default function App() {
     ? "Winner: " + winner
     : "Next player: " + (xIsNext ? "X" : "O");
 
-  const moves = _history.map((_, move) => {
-    const desc = move ? "Go to move #" + move : "Go to game start";
-    return (
-      <li key={move}>
-        <button onClick={() => jumpTo(move)}>{desc}</button>
-      </li>
-    );
-  });
-
   return (
     <div className="game">
       <div>{status}</div>
       <Board squares={squares} onClick={(e) => handleClick(e)} />
       <div className="game-info">
-        <ul>{moves}</ul>
+        <ul>
+          {_history.map((_, move) => (
+            <li key={move}>
+              <button onClick={() => jumpTo(move)}>
+                {move ? "Go to move #" + move : "Go to game start"}
+              </button>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );
