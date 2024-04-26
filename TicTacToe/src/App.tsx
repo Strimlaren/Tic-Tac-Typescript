@@ -46,7 +46,7 @@ export default function App() {
       setFinished(true);
       return;
     }
-    /* Get the board of this move and put it in squares*/
+    /* Get the board of this move and put it in squares */
     const _history = history.slice(0, moveNumber + 1);
     const squares = [..._history[_history.length - 1].squares];
     /* If this square already contains something, dont do anything, because it is already taken */
@@ -67,7 +67,7 @@ export default function App() {
     setMoveNumber(_history.length);
     setXIsNext(!xIsNext);
   }
-  /* Function to allow timetravel the board back to previous moves. */
+  /* Function to allow timetraveling the board back to previous moves. */
   function jumpTo(step: number) {
     setMoveNumber(step);
     setXIsNext(step % 2 === 0);
