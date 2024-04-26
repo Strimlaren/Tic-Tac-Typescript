@@ -82,20 +82,23 @@ export default function App() {
     : "Next player: " + (xIsNext ? "X" : "O");
 
   return (
-    <div className="game">
-      <div>{status}</div>
-      <Board squares={squares} onClick={(e) => handleClick(e)} />
-      <div className="game-info">
-        <ul>
-          {_history.map((_, move) => (
-            <li key={move}>
-              <button onClick={() => jumpTo(move)}>
-                {move ? "Go to move #" + move : "Go to game start"}
-              </button>
-            </li>
-          ))}
-        </ul>
+    <>
+      <div className="game">
+        <h1>Tic Tac TypeScript</h1>
+        <div>{status}</div>
+        <Board squares={squares} onClick={(e) => handleClick(e)} />
+        <div className="game-info">
+          <ul>
+            {_history.map((_, move) => (
+              <li key={move}>
+                <button onClick={() => jumpTo(move)}>
+                  {move ? "Go to move #" + move : "Go to game start"}
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
